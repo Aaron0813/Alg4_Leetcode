@@ -5,7 +5,8 @@ import java.util.*;
 /**
  * Author:   Fan(Aaron) Hu
  * Date:     2018/8/12 14:31
- * Description: From Leetcode https://leetcode.com/problems/3sum/description/
+ * Description: Three Sum
+ * https://leetcode.com/problems/3sum/description/
  * Given array nums = [-1, 0, 1, 2, -1, -4],
  *
  * A solution set is:
@@ -20,7 +21,7 @@ import java.util.*;
  * 但在本例中，算法的复杂度为N^2,虽然没有使用二分查找，但是速度快了很多
  * 且二分查找在应对数组中有重复元素时，会出现错误
  */
-public class ThreeSum {
+public class Leetcode_15 {
         public List<List<Integer>> threeSum(int[] nums) {
             Set<String> set = new HashSet<String>();
             List<List<Integer>> lists = new ArrayList<List<Integer>>();

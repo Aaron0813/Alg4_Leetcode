@@ -3,7 +3,8 @@ package leetcode;
 /**
  * Author:   Fan(Aaron) Hu
  * Date:     2018/8/16 10:46
- * Description: https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * Description: Merge Two Sorted Lists
+ * https://leetcode.com/problems/merge-two-sorted-lists/description/
  */
 
 /**
@@ -14,7 +15,7 @@ package leetcode;
  *     ListNode(int x) { val = x; }
  * }
  */
-public class MergeTwoSortedLists {
+public class Leetcode_21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode l3 = null;
         ListNode temp = null;
@@ -116,7 +117,7 @@ public class MergeTwoSortedLists {
     }
 
     public static void main(String[] args){
-        MergeTwoSortedLists mergeTwoSortedLists = new MergeTwoSortedLists();
+        Leetcode_21 mergeTwoSortedLists = new Leetcode_21();
         ListNode l1 = new ListNode(-9);
         l1.next = new ListNode(3);
         ListNode l2 = null;

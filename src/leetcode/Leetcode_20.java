@@ -5,9 +5,10 @@ import java.util.Stack;
 /**
  * Author:   Fan(Aaron) Hu
  * Date:     2018/8/16 9:59
- * Description: https://leetcode.com/problems/valid-parentheses/description/
+ * Description: Valid Parentheses
+ * https://leetcode.com/problems/valid-parentheses/description/
  */
-public class ValidParentheses {
+public class Leetcode_20 {
     public boolean isValid(String s) {
         Stack<Character> Parentheses = new Stack<Character>();
         int length = s.length();
@@ -54,7 +55,7 @@ public class ValidParentheses {
     }
 
     public static void main(String[] args){
-        ValidParentheses validParentheses = new ValidParentheses();
+        Leetcode_20 validParentheses = new Leetcode_20();
         System.out.println(validParentheses.isValid(")("));
 
     }
