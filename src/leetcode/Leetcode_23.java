@@ -36,7 +36,12 @@ public class Leetcode_23 {
         lists[1] = l2;
         lists[2] = l3;
 
+
+//        ListNode[] lists = new ListNode[1];
+//        lists[0]=null;
+
         Leetcode_23 leetcode_23 = new Leetcode_23();
+
         ListNode result = leetcode_23.mergeKLists(lists);
         while (result!=null){
             System.out.println(result.val);
@@ -45,13 +50,16 @@ public class Leetcode_23 {
     }
     public ListNode mergeKLists(ListNode[] lists) {
         int N = lists.length;
-        int count = N%2==0?N/2:N/2+1;
-        for(int length = 1; length < N; length = length+length){
-            for(int i = 0; i < N - length; i+=(length + length)){
-                lists[i] = mergeTwoLists(lists[i],lists[i+length]);
+        if(0!=N){
+            // 就是利用归并排序的思想
+            for(int length = 1; length < N; length = length+length){
+                for(int i = 0; i < N - length; i+=(length + length)){//如果N%2!=0,则将剩余的list放到下一次的排序中
+                    lists[i] = mergeTwoLists(lists[i],lists[i+length]);
+                }
             }
-        }
-        return lists[0];
+            return lists[0];
+        }else
+            return null;
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
