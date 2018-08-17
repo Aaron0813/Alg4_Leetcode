@@ -98,8 +98,7 @@ public class Leetcode_24 {
         l2.next = l3;
         l3.next = l4;
         l4.next = null;
-//        l4.next = l5;
-//        l5.next = null;
+
 
         Leetcode_24 leetcode_24 = new Leetcode_24();
         ListNode result = leetcode_24.swapPairs(listNode);

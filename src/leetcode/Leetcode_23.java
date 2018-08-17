@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Author:   Fan(Aaron) Hu
  * Date:     2018/8/17 11:01

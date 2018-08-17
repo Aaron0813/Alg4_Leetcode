@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Author:   Fan(Aaron) Hu
  * Date:     2018/8/17 16:16
- * Description: Remove Element
+ * Description: Remove  Element
  * https://leetcode.com/problems/remove-element/description/
  */
 public class Leetcode_27 {
