@@ -7,85 +7,99 @@ package leetcode;
  * https://leetcode.com/problems/swap-nodes-in-pairs/description/
  */
 public class Leetcode_24 {
-    private int isSwapInit = 0;
-    private int isInit = 0;
+//    private int isSwapInit = 0;
+//    private int isInit = 0;
+
     public ListNode swapPairs(ListNode head) {
-        ListNode temp = head;
-        ListNode newHead = null;
-        ListNode[] lists = new ListNode[2];
-        ListNode[] backup;
-        while(temp!=null){
-            System.out.println(temp.val);
-            swap(temp,lists);
-            temp = lists[0];
-            if(isInit == 0){
-                isInit = 1;
-                newHead = lists[1];
-            }
+        if (head == null || head.next == null) return head;
+        //借助dummy会让链表的处理变得简单一些
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode current = dummy;
+        while(current.next != null && current.next.next != null){
+            ListNode first = current.next;
+            ListNode second = current.next.next;
+            first.next = second.next;
+            current.next = second;
+            current.next.next = first;
+            current = current.next.next;
         }
-
-        return newHead;
+        return dummy.next;
     }
-
-    /**
-
-     * @return l3
-     */
-
-    /**
-     *  l2->l1->l3->l4  ---------->l2->l1->l4->l3
-     *  swap l3, l4 now
-     * @param head = l1
-     * @param lists lists[0]=l3; lists[1]在初次交换时，存储新链表的头
-     * @return
-     */
-     public void swap(ListNode head,ListNode[] lists){
-//     public ListNode[] swap(ListNode head,ListNode[] lists){
-//     public ListNode[] swap(ListNode head, ListNode previous, ListNode[] lists){
-         ListNode pointer = null;
-         ListNode swap1 = null;
-         ListNode swap2 = null;
-         ListNode last = null;
-         if(head.next!=null){
-             pointer = head;
-             if(isSwapInit == 0){
-                 swap1 = pointer;
-                 swap2 = swap1.next;
-
-                 swap1.next = swap2.next;
-                 swap2.next = swap1;
-             }else{
-                 swap1 = pointer.next;
-                 swap2 = swap1.next;
-                 last = swap2.next;
-
-                 //swap
-                 swap1.next = swap2.next;
-                 swap2.next = swap1;
-                 pointer.next = swap1;
-             }
+//    public ListNode swapPairs(ListNode head) {
+//        ListNode temp = head;
+//        ListNode newHead = null;
+//        ListNode[] lists = new ListNode[2];
+//        ListNode[] backup;
+//        while(temp!=null){
+//            System.out.println(temp.val);
+//            swap(temp,lists);
+//            temp = lists[0];
+//            if(isInit == 0){
+//                isInit = 1;
+//                newHead = lists[1];
+//            }
+//        }
+//
+//        return newHead;
+//    }
 
 
-             lists[0] = swap1;
-             if(isSwapInit!=0){
-                 lists[1] = null;
-             }else{
-                 lists[1] = swap2;
-                 isSwapInit = 1;
-             }
-//             return lists;
 
-         }else{
-             lists[0] = head;
-             if(isSwapInit!=0){
-                 lists[1] = null;
-             }else{
-                 lists[1] = head;
-                 isSwapInit = 1;
-             }
-//             return lists;
-         }
-     }
+//    /**
+//     *  l2->l1->l3->l4  ---------->l2->l1->l4->l3
+//     *  swap l3, l4 now
+//     * @param head = l1
+//     * @param lists lists[0]=l3; lists[1]在初次交换时，存储新链表的头
+//     * @return
+//     */
+//     public void swap(ListNode head,ListNode[] lists){
+////     public ListNode[] swap(ListNode head,ListNode[] lists){
+////     public ListNode[] swap(ListNode head, ListNode previous, ListNode[] lists){
+//         ListNode pointer = null;
+//         ListNode swap1 = null;
+//         ListNode swap2 = null;
+//         ListNode last = null;
+//         if(head.next!=null){
+//             pointer = head;
+//             if(isSwapInit == 0){
+//                 swap1 = pointer;
+//                 swap2 = swap1.next;
+//
+//                 swap1.next = swap2.next;
+//                 swap2.next = swap1;
+//             }else{
+//                 swap1 = pointer.next;
+//                 swap2 = swap1.next;
+//                 last = swap2.next;
+//
+//                 //swap
+//                 swap1.next = swap2.next;
+//                 swap2.next = swap1;
+//                 pointer.next = swap1;
+//             }
+//
+//
+//             lists[0] = swap1;
+//             if(isSwapInit!=0){
+//                 lists[1] = null;
+//             }else{
+//                 lists[1] = swap2;
+//                 isSwapInit = 1;
+//             }
+////             return lists;
+//
+//         }else{
+//             lists[0] = head;
+//             if(isSwapInit!=0){
+//                 lists[1] = null;
+//             }else{
+//                 lists[1] = head;
+//                 isSwapInit = 1;
+//             }
+////             return lists;
+//         }
+//     }
 
     public static void main(String[] args){
         ListNode listNode = new ListNode(1);
