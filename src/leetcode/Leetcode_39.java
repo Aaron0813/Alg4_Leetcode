@@ -24,7 +24,8 @@ public class Leetcode_39 {
     private void findSum(List<Integer> subResult,int[] candidates, int startIndex, int target, List<List<Integer>> results){
         // for(int i = startIndex; i < candidates.length; i++){//之前最大的失误在于for循环位置写错了，写在了判断target值的最外面-导致出现了很多的重复解
         if(0 < target){
-            for(int i = startIndex; i < candidates.length; i++){//之前最大的失误在于for循环位置写错了，写在了判断target值的最外面
+            //candidates[i] <= target可以显著加速运算进行剪枝操作
+            for(int i = startIndex; i < candidates.length && candidates[i] <= target; i++){//之前最大的失误在于for循环位置写错了，写在了判断target值的最外面
                 subResult.add(candidates[i]);
                 // List<Integer> preResult = new ArrayList(subResult);
                 // target = target - candidates[i]; // 不能在循环内部直接进行相减，这样的话会影响下一次循环的target赋值情况

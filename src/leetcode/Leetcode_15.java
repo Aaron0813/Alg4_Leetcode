@@ -58,7 +58,7 @@ public class Leetcode_15 {
 /**
  * 课本提供的解法，对于[0,0,0]的输入会出错，主要错误在二分查找这一步
  */
-class Solution {
+class Solution15 {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<Integer> set = new HashSet<Integer>();
         List<List<Integer>> lists = new ArrayList<List<Integer>>();
